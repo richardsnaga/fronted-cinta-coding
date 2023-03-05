@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Navigation from "../components/Navigation";
 import Dashboard from "../pages/dashboard/Dashboard";
 import DetailPosting from "../pages/detail-posting/DetailPosting";
 import DetailProfile from "../pages/detail-profile/DetailProfile";
@@ -9,6 +8,8 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import LayoutDashboard from "../widggets/LayoutDashboard";
 import LayoutLanding from "../widggets/LayoutLanding";
+import Tes from "../pages/Tes";
+import DetailComment from "../pages/detail-comment/DetailComment";
 
 const Router = () => {
   let LoginRoute = (param) => {
@@ -27,7 +28,6 @@ const Router = () => {
   };
   return (
     <BrowserRouter>
-      {/* <Navigation /> */}
       <Routes>
         <Route
           path="/"
@@ -57,7 +57,16 @@ const Router = () => {
             </DashboardRoute>
           }
         />
-        <Route path="/detail-profile" element={<DetailProfile />} />
+        <Route
+          path="/detail-profile/:id"
+          element={
+            <DashboardRoute>
+              <LayoutDashboard>
+                <DetailProfile />
+              </LayoutDashboard>
+            </DashboardRoute>
+          }
+        />
         <Route
           path="/detail-posting/:id"
           element={
@@ -68,6 +77,17 @@ const Router = () => {
             </DashboardRoute>
           }
         />
+        <Route
+          path="/detail-comment/:id"
+          element={
+            <DashboardRoute>
+              <LayoutDashboard>
+                <DetailComment />
+              </LayoutDashboard>
+            </DashboardRoute>
+          }
+        />
+        <Route path="/tes" element={<Tes />} />
       </Routes>
     </BrowserRouter>
   );

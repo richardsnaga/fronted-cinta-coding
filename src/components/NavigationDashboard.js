@@ -5,6 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const NavigationDashboard = () => {
   let navigate = useNavigate();
+
+  const user = JSON.parse(Cookies.get("user"));
+  console.log("user", user);
   const handleLogout = () => {
     Cookies.remove("user");
     navigate("/login");
@@ -22,12 +25,14 @@ const NavigationDashboard = () => {
             label={
               <span className="text-xl font-bold dark:text-white">
                 Welcome,{" "}
-                <span className="text-xl font-bold text-blue-500">Abit</span>
+                <span className="text-xl font-bold text-blue-500">
+                  {user[0].name}
+                </span>
               </span>
             }
             inline={true}
           >
-            <Link to={`/detail-profile/3`}>
+            <Link to={`/detail-profile/${user[0].id}`}>
               <Dropdown.Item>Detail Profile</Dropdown.Item>
             </Link>
             <Link onClick={handleLogout}>
