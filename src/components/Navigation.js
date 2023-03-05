@@ -7,7 +7,7 @@ const Navigation = () => {
     <Navbar fluid={false} rounded={true}>
       <div className="container flex flex-wrap items-center justify-between mx-auto px-3 lg:w-5/6">
         <Navbar.Brand href="/">
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <span className="self-center whitespace-nowrap text-xl font-bold dark:text-white">
             Cinta Coding
           </span>
         </Navbar.Brand>
