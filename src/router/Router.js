@@ -8,6 +8,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import LayoutDashboard from "../widggets/LayoutDashboard";
 import LayoutLanding from "../widggets/LayoutLanding";
+import NotFound from "../pages/not-found/NotFound";
 import Tes from "../pages/Tes";
 import DetailComment from "../pages/detail-comment/DetailComment";
 
@@ -29,6 +30,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/"
           element={
@@ -87,7 +89,7 @@ const Router = () => {
             </DashboardRoute>
           }
         />
-        <Route path="/tes" element={<Tes />} />
+        {/* <Route path="/tes" element={<Tes />} /> */}
       </Routes>
     </BrowserRouter>
   );
